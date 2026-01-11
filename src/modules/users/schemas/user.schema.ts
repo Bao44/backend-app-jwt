@@ -3,7 +3,7 @@ import { HydratedDocument } from 'mongoose';
 
 export type UserDocument = HydratedDocument<User>;
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true }) // tự động tạo createdAt và updatedAt
 export class User {
     @Prop()
     name: string;
@@ -23,14 +23,14 @@ export class User {
     @Prop()
     image: string;
 
-    @Prop()
+    @Prop({default: 'USER'})
     role: string;
 
-    @Prop()
+    @Prop({default: 'LOCAL'})
     accountType: string;
 
-    @Prop()
-    isActive: string;
+    @Prop({default: false})
+    isActive: boolean;
 
     @Prop()
     codeId: string;
