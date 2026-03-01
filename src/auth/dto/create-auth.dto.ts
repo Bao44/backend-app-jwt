@@ -1,8 +1,12 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateAuthDto {
-  @IsNotEmpty({ message: 'Username should not be empty' })
-  username: string;
+  @IsNotEmpty({ message: 'email should not be empty' })
+  email: string;
+  
   @IsNotEmpty({ message: 'Password should not be empty' })
   password: string;
+
+  @IsOptional()
+  name: string;
 }
